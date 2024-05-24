@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFaw.Views.Busqueda">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <Button Text="Obtener Datos" VerticalOptions="Center" HorizontalOptions="Center" Clicked="ObtenerDatosButton_Clicked" CornerRadius="40"  HeightRequest="15" BorderColor="Gray" Margin="0,0,0,0"/>
+                <ListView x:Name="listView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Padding="5">
+                                    <Label Text="{Binding VIN}" FontSize="Medium" TextColor="Black"/>
+                                    <Label Text="{Binding MejoraContinua}" FontSize="Small" TextColor="Gray"/>
+                                    <Label Text="{Binding FechaRealizacion, StringFormat='{0:dd/MM/yyyy}'}" FontSize="Small" TextColor="Gray"/>
+                                    <Label Text="{Binding Tiempo, StringFormat='{0:c}'}" FontSize="Small" TextColor="Gray"/>
+                                    <Label Text="{Binding Estacion}" FontSize="Small" TextColor="Gray"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
