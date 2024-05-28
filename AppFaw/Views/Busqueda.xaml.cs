@@ -22,20 +22,8 @@ namespace AppFaw.Views
 
         private async void ObtenerDatosButton_Clicked(object sender, EventArgs e)
         {
-            using (var client = new HttpClient())
-            {
-                var response = await client.GetAsync("http://10.0.2.2:8000/api/auditoresverificacion");
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    var camiones = JsonConvert.DeserializeObject<List<Camion1>>(result);
-                    listView.ItemsSource = camiones;
-                }
-                else
-                {
-                    await DisplayAlert("Error", "No se pudieron obtener los datos del camión.", "Ok");
-                }
-            }
+
+           
         }
     }
 }

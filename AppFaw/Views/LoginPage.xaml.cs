@@ -22,6 +22,19 @@ namespace AppFaw.Views
             this.BindingContext = new LoginViewModel();
         }
 
+        private void checkVer_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if(checkVer.IsChecked)
+            {
+                txtContraseña.IsPassword = false;
+                return;
+            }
+            else
+            {
+                txtContraseña.IsPassword=true;
+            }
+        }
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
             if(!string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) && !string.IsNullOrWhiteSpace(txtContraseña.Text))

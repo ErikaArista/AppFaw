@@ -1,26 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppFaw.Views.Busqueda">
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppFaw.Views.Busqueda"
+             Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <ScrollView>
             <AbsoluteLayout>
-                <Button Text="Obtener Datos" VerticalOptions="Center" HorizontalOptions="Center" Clicked="ObtenerDatosButton_Clicked" CornerRadius="40"  HeightRequest="15" BorderColor="Gray" Margin="0,0,0,0"/>
-                <ListView x:Name="listView">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Vertical" Padding="5">
-                                    <Label Text="{Binding VIN}" FontSize="Medium" TextColor="Black"/>
-                                    <Label Text="{Binding MejoraContinua}" FontSize="Small" TextColor="Gray"/>
-                                    <Label Text="{Binding FechaRealizacion, StringFormat='{0:dd/MM/yyyy}'}" FontSize="Small" TextColor="Gray"/>
-                                    <Label Text="{Binding Tiempo, StringFormat='{0:c}'}" FontSize="Small" TextColor="Gray"/>
-                                    <Label Text="{Binding Estacion}" FontSize="Small" TextColor="Gray"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <Frame HeightRequest="200" Padding="0" Margin="0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <Frame.Background >
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="DodgerBlue" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+                
+                <Frame BackgroundColor="White" HeightRequest="400" HasShadow="True" Padding="0" Margin="25,0,25,0" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
+                    
+                <StackLayout Padding="20">
+                        <StackLayout HorizontalOptions="Start">
+                            <Label Text="Datos camiones" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
+                            <Image Source="faw.png" />
+
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="VIN" TextColor="DarkSlateBlue" FontSize="Medium"/>
+                            <Picker x:Name="pickerBuscar" Title="Selecciona un VIN" TitleColor="LightBlue"/>
+                            <Label Text="Fecha de realización" TextColor="DarkSlateBlue" FontSize="Medium"/>
+                            <Editor x:Name="txtFecha" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Label Text="Estación" TextColor="DarkSlateBlue" FontSize="Medium"/>
+                            <Editor x:Name="txtEstacion" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Label Text="Mejoras" TextColor="DarkSlateBlue" FontSize="Medium"/>
+                            <Editor x:Name="txtMejoras" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="Medium"/>
+                            <Editor x:Name="txtTiempo" TextColor="Black" PlaceholderColor="Gray"/>
+                        </StackLayout>
+                </StackLayout>
+                </Frame>
             </AbsoluteLayout>
         </ScrollView>
     </ContentPage.Content>
