@@ -26,6 +26,9 @@
                             <Image Source="faw.png" />
                         </StackLayout>
                         <StackLayout>
+                            <Editor x:Name="txtIdAuditores" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Editor x:Name="txtIdUser" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Editor x:Name="txtIdInspeccion" TextColor="Black" PlaceholderColor="Gray"/>
                             <Label Text="VIN" TextColor="DarkSlateBlue" FontSize="Medium"/>
                             <Picker x:Name="pickerBuscar" Title="Selecciona un VIN" TitleColor="LightBlue"/>
                             <Label Text="Fecha de realización" TextColor="DarkSlateBlue" FontSize="Medium"/>

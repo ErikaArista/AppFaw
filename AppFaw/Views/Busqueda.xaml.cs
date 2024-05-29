@@ -25,7 +25,9 @@ namespace AppFaw.Views
 
             if(!string.IsNullOrWhiteSpace(pickerBuscar.AutomationId))
             {
-                
+                var Auditores = txtIdAuditores.Text;
+                var fecha = txtFecha.Text;
+
             }
 
            
