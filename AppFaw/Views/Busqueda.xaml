@@ -21,24 +21,20 @@
                 <Frame BackgroundColor="White" HeightRequest="400" HasShadow="True" Padding="0" Margin="25,0,25,0" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     
                 <StackLayout Padding="20">
-                        <StackLayout HorizontalOptions="Start">
-                            <Label Text="Datos camiones" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
-                            <Image Source="faw.png" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Datos de los camiones" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
+                            <Image Source="https://i.pinimg.com/736x/c0/c8/35/c0c835e617ae51e15c261e717589ad90.jpg" WidthRequest="150"/>
                         </StackLayout>
                         <StackLayout>
-                            <Editor x:Name="txtIdAuditores" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsVisible="False"/>
-                            <Editor x:Name="txtIdUser" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsVisible="False"/>
-                            <Editor x:Name="txtIdInspeccion" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsVisible="False"/>
-                            <Label Text="VIN" TextColor="DarkSlateBlue" FontSize="Medium"/>
-                            <Picker x:Name="pickerBuscar" Title="Selecciona un VIN" TitleColor="LightBlue"/>
-                            <Label Text="Fecha de realización" TextColor="DarkSlateBlue" FontSize="Medium" />
-                            <Editor x:Name="txtFecha" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
-                            <Label Text="Estación" TextColor="DarkSlateBlue" FontSize="Medium"/>
-                            <Editor x:Name="txtEstacion" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
-                            <Label Text="Mejoras" TextColor="DarkSlateBlue" FontSize="Medium"/>
-                            <Editor x:Name="txtMejoras" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
-                            <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="Medium"/>
-                            <Editor x:Name="txtTiempo" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
+                            <Picker x:Name="pickerBuscar" Title="VIN" TitleColor="LightBlue"/>
+                            <Label Text="Fecha de realización" TextColor="DarkSlateBlue" FontSize="Small" />
+                            <Editor x:Name="Fecha" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True" Keyboard="Chat" />
+                            <Label Text="Estación" TextColor="DarkSlateBlue" FontSize="Small"/>
+                            <Editor x:Name="Estacion" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
+                            <Label Text="Mejoras" TextColor="DarkSlateBlue" FontSize="Small"/>
+                            <Editor x:Name="Mejoras" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
+                            <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="Small"/>
+                            <Editor x:Name="Tiempo" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True" TextTransform="Uppercase"/>
                         </StackLayout>
                 </StackLayout>
                 </Frame>
