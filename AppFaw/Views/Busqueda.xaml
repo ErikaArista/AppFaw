@@ -24,7 +24,6 @@
                         <StackLayout HorizontalOptions="Start">
                             <Label Text="Datos camiones" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
                             <Image Source="faw.png" />
-
                         </StackLayout>
                         <StackLayout>
                             <Label Text="VIN" TextColor="DarkSlateBlue" FontSize="Medium"/>
