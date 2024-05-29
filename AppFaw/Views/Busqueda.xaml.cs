@@ -22,14 +22,7 @@ namespace AppFaw.Views
 
         private async void ObtenerDatosButton_Clicked(object sender, EventArgs e)
         {
-
-            if(!string.IsNullOrWhiteSpace(pickerBuscar.AutomationId))
-            {
-                var Auditores = txtIdAuditores.Text;
-                var fecha = txtFecha.Text;
-
-            }
-
+            
            
         }
     }
