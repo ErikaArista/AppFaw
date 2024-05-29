@@ -9,30 +9,35 @@
     <ContentPage.Content>
         <ScrollView>
             <AbsoluteLayout>
+                <!-- Frame with Gradient Background -->
                 <Frame HeightRequest="200" Padding="0" Margin="0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                    <Frame.Background >
+                    <Frame.Background>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                            <GradientStop Color="White" Offset="1"/>
-                            <GradientStop Color="DodgerBlue" Offset="0"/>
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="DodgerBlue" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>
+
+                <!-- Main Content Frame -->
                 <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="25,50,25,50" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     <StackLayout Padding="20">
                         <Image Margin="0,25,0,15" Source="https://i.pinimg.com/originals/51/b0/01/51b001e0289d4fe1c0bec80a95edbe7d.png"/>
                         <Label Text="Inicio de sesión" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="Black" HorizontalOptions="CenterAndExpand" />
 
                         <StackLayout Orientation="Vertical" Spacing="15">
-                            <Entry Placeholder="Correo electronico" FontAttributes="None" FontSize="Small" PlaceholderColor="Gray" x:Name="txtCorreoElectronico" TextColor="Black" />
+                            <Entry Placeholder="Correo electrónico" FontAttributes="None" FontSize="Small" PlaceholderColor="Gray" x:Name="txtCorreoElectronico" TextColor="Black" />
                             <Entry Placeholder="Contraseña" IsPassword="True" FontAttributes="None" FontSize="Small" PlaceholderColor="Gray" x:Name="txtContraseña" TextColor="Black" />
                         </StackLayout>
+
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Mostrar contraseña" TextColor="CornflowerBlue" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="Center" />
-                            <CheckBox x:Name="checkVer" Color="DodgerBlue" IsChecked="False"   CheckedChanged="checkVer_CheckedChanged"/>
+                            <CheckBox x:Name="checkVer" Color="DodgerBlue" IsChecked="False" CheckedChanged="checkVer_CheckedChanged"/>
                         </StackLayout>
+
                         <StackLayout Padding="15">
                             <Button VerticalOptions="Center" Text="Inicio" Clicked="Button_Clicked" CornerRadius="40" HeightRequest="35" WidthRequest="15" BorderColor="gray" Margin="0,0,0,0"/>
-                            <ActivityIndicator x:Name="indicadorCargar" IsRunning="False" IsVisible="true"/>        
+                            <ActivityIndicator x:Name="indicadorCargar" IsRunning="False" IsVisible="true"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>

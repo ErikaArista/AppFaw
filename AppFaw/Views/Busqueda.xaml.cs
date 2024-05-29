@@ -74,10 +74,10 @@ namespace AppFaw.Views
 
                 if (selectedCamion != null)
                 {
-                    txtFecha.Text = selectedCamion.FechaRealizacion.ToString("dd/MM/yyyy");
-                    txtEstacion.Text = selectedCamion.Estacion;
-                    txtMejoras.Text = selectedCamion.MejorasContinuas;
-                    txtTiempo.Text = selectedCamion.TiempoAuditores.ToString();
+                    Fecha.Text = selectedCamion.FechaRealizacion.ToString("dd/MM/yyyy");
+                    Estacion.Text = selectedCamion.Estacion;
+                    Mejoras.Text = selectedCamion.MejorasContinuas;
+                    Tiempo.Text = selectedCamion.TiempoAuditores.ToString();
                 }
             }
         }

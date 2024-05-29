@@ -10,15 +10,14 @@
         <ScrollView>
             <AbsoluteLayout>
                 <Frame HeightRequest="200" Padding="0" Margin="0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                    <Frame.Background >
+                    <Frame.Background>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                            <GradientStop Color="White" Offset="1"/>
-                            <GradientStop Color="DodgerBlue" Offset="0"/>
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="DodgerBlue" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>
-                
-                <Frame BackgroundColor="White" HeightRequest="400" HasShadow="True" Padding="0" Margin="25,0,25,0" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
+                <Frame BackgroundColor="White" HeightRequest="400" HasShadow="True" Padding="0" Margin="25,0,25,100" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     
                 <StackLayout Padding="20">
                         <StackLayout Orientation="Horizontal">
