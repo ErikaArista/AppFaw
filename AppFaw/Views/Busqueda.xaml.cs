@@ -64,6 +64,7 @@ namespace AppFaw.Views
             pickerBuscar.SelectedIndexChanged += PickerBuscar_SelectedIndexChanged;
         }
 
+
         private void PickerBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (pickerBuscar.SelectedIndex != -1)

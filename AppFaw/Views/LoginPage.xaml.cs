@@ -62,7 +62,10 @@ namespace AppFaw.Views
                     {
                         indicadorCargar.IsVisible = true;
                         indicadorCargar.IsRunning = true;
+
+
                         await Navigation.PushAsync(new Busqueda());
+
                     }
                     else
                     {

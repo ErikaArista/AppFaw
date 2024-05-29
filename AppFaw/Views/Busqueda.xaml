@@ -24,19 +24,21 @@
                         <StackLayout HorizontalOptions="Start">
                             <Label Text="Datos camiones" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
                             <Image Source="faw.png" />
-
                         </StackLayout>
                         <StackLayout>
+                            <Editor x:Name="txtIdAuditores" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsVisible="False"/>
+                            <Editor x:Name="txtIdUser" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsVisible="False"/>
+                            <Editor x:Name="txtIdInspeccion" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsVisible="False"/>
                             <Label Text="VIN" TextColor="DarkSlateBlue" FontSize="Medium"/>
                             <Picker x:Name="pickerBuscar" Title="Selecciona un VIN" TitleColor="LightBlue"/>
-                            <Label Text="Fecha de realización" TextColor="DarkSlateBlue" FontSize="Medium"/>
-                            <Editor x:Name="txtFecha" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Label Text="Fecha de realización" TextColor="DarkSlateBlue" FontSize="Medium" />
+                            <Editor x:Name="txtFecha" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
                             <Label Text="Estación" TextColor="DarkSlateBlue" FontSize="Medium"/>
-                            <Editor x:Name="txtEstacion" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Editor x:Name="txtEstacion" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
                             <Label Text="Mejoras" TextColor="DarkSlateBlue" FontSize="Medium"/>
-                            <Editor x:Name="txtMejoras" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Editor x:Name="txtMejoras" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
                             <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="Medium"/>
-                            <Editor x:Name="txtTiempo" TextColor="Black" PlaceholderColor="Gray"/>
+                            <Editor x:Name="txtTiempo" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
                         </StackLayout>
                 </StackLayout>
                 </Frame>
