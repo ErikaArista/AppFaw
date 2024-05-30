@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net;
+using Newtonsoft.Json.Linq;
 
 
 namespace AppFaw.Views
@@ -53,23 +54,35 @@ namespace AppFaw.Views
                 var json = JsonConvert.SerializeObject(loginInformacion);
                 var datos = new StringContent(json, Encoding.UTF8, "application/json");
 
+
                 using (var client = new HttpClient())
                 {
-                    var response = await client.PostAsync(uri,datos);
+                    var response = await client.PostAsync(uri, datos);
                     var result = await response.Content.ReadAsStringAsync();
-                    
-                    if (response.StatusCode == HttpStatusCode.OK && !result.ToString().Contains("Credenciales invalidas"))
+
+                    if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        indicadorCargar.IsVisible = true;
-                        indicadorCargar.IsRunning = true;
+                        if (result.Contains("eyJ"))
+                        {
+                            // Si la respuesta es exitosa y contiene un token, lo muestra en txtToken
+                            var jsonResponse = JObject.Parse(result); 
+                            indicadorCargar.IsVisible = true;
+                            indicadorCargar.IsRunning = true;
 
-
-                        await Navigation.PushAsync(new Busqueda());
-
+                            await Navigation.PushAsync(new Busqueda());
+                        }
+                        else if (result.Contains("Credenciales invalidas"))
+                        {
+                            await DisplayAlert("Error", "Usuario o contraseña incorrecto", "OK");
+                        }
+                        else
+                        {
+                            await DisplayAlert("Error", "Respuesta inesperada del servidor", "OK");
+                        }
                     }
                     else
                     {
-                        await DisplayAlert("Error", "Usuario o contraseña incorrecto", "OK");
+                        await DisplayAlert("Error", "Error en la conexión con el servidor", "OK");
                     }
                 }
             }
