@@ -2,9 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AppFaw.ViewModels;
+using System.Linq;
+using System.Text;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace AppFaw.Views
 {
@@ -12,47 +18,44 @@ namespace AppFaw.Views
     public partial class Busqueda : ContentPage
     {
         private List<Camion1> camiones;
+        private string authToken;
 
-        public Busqueda()
+        public Busqueda(string authToken)
         {
             InitializeComponent();
+            this.authToken = authToken;
             LoadCamionData();
         }
 
         private async void LoadCamionData()
         {
-            Uri camionUri = new Uri("http://127.0.0.1:8000/api/ConsultaDatos");
+            Uri camionUri = new Uri("http://10.0.2.2:8000/api/ConsultaDatos");
 
-            using (var client = new HttpClient())
+            try
             {
-                try
+                using (var client = new HttpClient())
                 {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
+
                     var response = await client.GetAsync(camionUri);
-
-                    System.Diagnostics.Debug.WriteLine($"Status Code: {response.StatusCode}");
-
                     if (response.IsSuccessStatusCode)
                     {
-                        var jsonResponse = await response.Content.ReadAsStringAsync();
-                        System.Diagnostics.Debug.WriteLine($"Response JSON: {jsonResponse}");
-
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
                         camiones = JsonConvert.DeserializeObject<List<Camion1>>(jsonResponse);
                         PopulatePicker();
                     }
                     else
                     {
-                        var errorContent = await response.Content.ReadAsStringAsync();
-                        System.Diagnostics.Debug.WriteLine($"Error Content: {errorContent}");
                         await DisplayAlert("Error", $"No se pudo obtener los datos de los camiones. Código de estado: {response.StatusCode}", "OK");
                     }
                 }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"Exception: {ex.Message}");
-                    await DisplayAlert("Error", "Ocurrió un error al intentar obtener los datos de los camiones. Verifique su conexión a internet y vuelva a intentarlo.", "OK");
-                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
             }
         }
+
 
         private void PopulatePicker()
         {
@@ -63,7 +66,6 @@ namespace AppFaw.Views
 
             pickerBuscar.SelectedIndexChanged += PickerBuscar_SelectedIndexChanged;
         }
-
 
         private void PickerBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {

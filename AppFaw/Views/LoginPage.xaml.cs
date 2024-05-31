@@ -23,7 +23,7 @@ namespace AppFaw.Views
             this.BindingContext = new LoginViewModel();
         }
 
-        private void checkVer_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        private async void checkVer_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             if(checkVer.IsChecked)
             {
@@ -38,9 +38,8 @@ namespace AppFaw.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) && !string.IsNullOrWhiteSpace(txtContraseña.Text))
+            if (!string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) && !string.IsNullOrWhiteSpace(txtContraseña.Text))
             {
-
                 var correo = txtCorreoElectronico.Text;
                 var password = txtContraseña.Text;
 
@@ -54,7 +53,6 @@ namespace AppFaw.Views
                 var json = JsonConvert.SerializeObject(loginInformacion);
                 var datos = new StringContent(json, Encoding.UTF8, "application/json");
 
-
                 using (var client = new HttpClient())
                 {
                     var response = await client.PostAsync(uri, datos);
@@ -64,12 +62,10 @@ namespace AppFaw.Views
                     {
                         if (result.Contains("eyJ"))
                         {
-                            // Si la respuesta es exitosa y contiene un token, lo muestra en txtToken
-                            var jsonResponse = JObject.Parse(result); 
-                            indicadorCargar.IsVisible = true;
-                            indicadorCargar.IsRunning = true;
+                            var jsonResponse = JObject.Parse(result);
+                            var token = jsonResponse.Value<string>("Token");
 
-                            await Navigation.PushAsync(new Busqueda());
+                            await Navigation.PushAsync(new Busqueda(token));
                         }
                         else if (result.Contains("Credenciales invalidas"))
                         {
@@ -88,8 +84,10 @@ namespace AppFaw.Views
             }
             else
             {
-                DisplayAlert("Error", "Verifica que los campos esten llenos", "OK");
+                DisplayAlert("Error", "Verifica que los campos estén llenos", "OK");
             }
         }
+
+
     }
 }
