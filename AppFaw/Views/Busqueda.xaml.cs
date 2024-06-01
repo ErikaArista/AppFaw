@@ -29,7 +29,7 @@ namespace AppFaw.Views
 
         private async void LoadCamionData()
         {
-            Uri camionUri = new Uri("http://10.0.2.2:8000/api/ConsultaDatos");
+            Uri camionUri = new Uri("http://10.0.2.2:8000/api/Consulta-Tiempos");
 
             try
             {
