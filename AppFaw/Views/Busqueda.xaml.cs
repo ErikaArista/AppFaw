@@ -43,6 +43,7 @@ namespace AppFaw.Views
                         string jsonResponse = await response.Content.ReadAsStringAsync();
                         camiones = JsonConvert.DeserializeObject<List<Camion1>>(jsonResponse);
                         PopulatePicker();
+                        PopularPickerEstaciones();
                     }
                     else
                     {
@@ -59,12 +60,39 @@ namespace AppFaw.Views
 
         private void PopulatePicker()
         {
+            pickerBuscar.Items.Clear();
+
+            //HashSet evita que dupliquemos los Vin
+            var vinSet = new HashSet<string>();
+
             foreach (var camion in camiones)
             {
-                pickerBuscar.Items.Add(camion.VIN);
+                if (vinSet.Add(camion.VIN))
+                {
+                    pickerBuscar.Items.Add(camion.VIN);
+                }
             }
 
+            // Aqui hacemos que solo se ejecute un evento a la vez
+            pickerBuscar.SelectedIndexChanged -= PickerBuscar_SelectedIndexChanged;
             pickerBuscar.SelectedIndexChanged += PickerBuscar_SelectedIndexChanged;
+        }
+
+        private void PopularPickerEstaciones()
+        {
+            pickerEstaciones.Items.Clear();
+            var estaciones = new HashSet<string>();
+
+            foreach (var camion in camiones)
+            {
+                estaciones.Add(camion.Estacion);
+            }
+
+            foreach (var estacion in estaciones)
+            {
+                pickerEstaciones.Items.Add(estacion);
+            }
+
         }
 
         private void PickerBuscar_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,17 +100,28 @@ namespace AppFaw.Views
             if (pickerBuscar.SelectedIndex != -1)
             {
                 var selectedVIN = pickerBuscar.Items[pickerBuscar.SelectedIndex];
-                var selectedCamion = camiones.Find(c => c.VIN == selectedVIN);
+                var selectedEstacion = pickerEstaciones.Items[pickerBuscar.SelectedIndex];
 
-                if (selectedCamion != null)
+                // Aqui hacemos que se verifique si el Vin tiene una estacion 
+                var camion = camiones.FirstOrDefault(c => c.VIN == selectedVIN && c.Estacion == selectedEstacion);
+
+                if (camion != null)
                 {
-                    Fecha.Text = selectedCamion.FechaRealizacion.ToString("dd/MM/yyyy");
-                    Estacion.Text = selectedCamion.Estacion;
-                    Mejoras.Text = selectedCamion.MejorasContinuas;
-                    Tiempo.Text = selectedCamion.TiempoAuditores.ToString();
+                    Fecha.Text = camion.FechaRealizacion.ToString("dd/MM/yyyy");
+                    Mejoras.Text = camion.MejorasContinuas;
+                    Tiempo.Text = camion.TiempoAuditores.ToString();
+                }
+                else
+                {
+                    ShowAlertAsync();
                 }
             }
         }
+        private async void ShowAlertAsync()
+        {
+            await DisplayAlert("Alerta", "El VIN seleccionado no tiene una estación asociada.", "OK");
+        }
+
     }
 
     public class Camion1

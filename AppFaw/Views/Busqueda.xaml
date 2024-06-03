@@ -25,11 +25,10 @@
                             <Image Source="https://i.pinimg.com/736x/c0/c8/35/c0c835e617ae51e15c261e717589ad90.jpg" WidthRequest="150"/>
                         </StackLayout>
                         <StackLayout>
+                            <Picker x:Name="pickerEstaciones" Title="Estaciones" TitleColor="LightBlue"/>
                             <Picker x:Name="pickerBuscar" Title="VIN" TitleColor="LightBlue"/>
                             <Label Text="Fecha de realización" TextColor="DarkSlateBlue" FontSize="Small" />
                             <Editor x:Name="Fecha" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True" Keyboard="Chat" />
-                            <Label Text="Estación" TextColor="DarkSlateBlue" FontSize="Small"/>
-                            <Editor x:Name="Estacion" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
                             <Label Text="Mejoras" TextColor="DarkSlateBlue" FontSize="Small"/>
                             <Editor x:Name="Mejoras" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
                             <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="Small"/>
