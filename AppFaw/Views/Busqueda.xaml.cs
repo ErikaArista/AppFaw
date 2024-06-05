@@ -93,6 +93,30 @@ namespace AppFaw.Views
                 pickerEstaciones.Items.Add(estacion);
             }
 
+            pickerEstaciones.SelectedIndexChanged -= PickerEstaciones_SelectedIndexChanged;
+            pickerEstaciones.SelectedIndexChanged += PickerEstaciones_SelectedIndexChanged;
+        }
+
+        private void PickerEstaciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (pickerEstaciones.SelectedIndex != -1)
+            {
+                var selectedEstacion = pickerEstaciones.Items[pickerEstaciones.SelectedIndex];
+                var relatedVINs = camiones.Where(c => c.Estacion == selectedEstacion).Select(c => c.VIN).Distinct().ToList();
+
+                pickerBuscar.Items.Clear();
+                if (relatedVINs.Count > 0)
+                {
+                    foreach (var vin in relatedVINs)
+                    {
+                        pickerBuscar.Items.Add(vin);
+                    }
+                }
+                else
+                {
+                    DisplayAlert("Alerta", "No se encontraron VINs para esta estación.", "OK");
+                }
+            }
         }
 
         private void PickerBuscar_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,7 +124,7 @@ namespace AppFaw.Views
             if (pickerBuscar.SelectedIndex != -1)
             {
                 var selectedVIN = pickerBuscar.Items[pickerBuscar.SelectedIndex];
-                var selectedEstacion = pickerEstaciones.Items[pickerBuscar.SelectedIndex];
+                var selectedEstacion = pickerEstaciones.SelectedIndex != -1 ? pickerEstaciones.Items[pickerEstaciones.SelectedIndex] : null;
 
                 // Aqui hacemos que se verifique si el Vin tiene una estacion 
                 var camion = camiones.FirstOrDefault(c => c.VIN == selectedVIN && c.Estacion == selectedEstacion);
@@ -117,11 +141,11 @@ namespace AppFaw.Views
                 }
             }
         }
+
         private async void ShowAlertAsync()
         {
             await DisplayAlert("Alerta", "El VIN seleccionado no tiene una estación asociada.", "OK");
         }
-
     }
 
     public class Camion1
