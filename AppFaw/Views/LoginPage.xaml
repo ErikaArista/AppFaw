@@ -26,7 +26,7 @@
                         <Label Text="Inicio de sesión" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="Black" HorizontalOptions="CenterAndExpand" />
 
                         <StackLayout Orientation="Vertical" Spacing="15">
-                            <Entry Placeholder="Correo electrónico" FontAttributes="None" FontSize="Small" PlaceholderColor="Gray" x:Name="txtCorreoElectronico" TextColor="Black" />
+                            <Entry Placeholder="Correo electrónico" FontAttributes="None" FontSize="Small" PlaceholderColor="Gray" x:Name="txtCorreoElectronico" TextColor="Black" Keyboard="Email"/>
                             <Entry Placeholder="Contraseña" IsPassword="True" FontAttributes="None" FontSize="Small" PlaceholderColor="Gray" x:Name="txtContraseña" TextColor="Black" />
                         </StackLayout>
 
