@@ -17,22 +17,25 @@
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>
-                <Frame BackgroundColor="White" HeightRequest="400" HasShadow="True" Padding="0" Margin="25,0,25,100" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
+                <Frame BackgroundColor="White" HeightRequest="560" HasShadow="True" Padding="0" Margin="25,0,25,100" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     
                 <StackLayout Padding="20">
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Datos de los camiones" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
                             <Image Source="https://i.pinimg.com/736x/c0/c8/35/c0c835e617ae51e15c261e717589ad90.jpg" WidthRequest="150"/>
                         </StackLayout>
-                        <StackLayout>
-                            <Picker x:Name="pickerEstaciones" Title="Estaciones" TitleColor="LightBlue"/>
-                            <Picker x:Name="pickerBuscar" Title="VIN" TitleColor="LightBlue"/>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Picker x:Name="pickerEstaciones" Title="Estaciones" TitleColor="LightBlue" Margin="0,10,0,0"/>
+                            <Picker x:Name="pickerBuscar" Title="VIN" TitleColor="LightBlue" Margin="0,10,0,0"/>
                             <Label Text="Fecha de realización" TextColor="DarkSlateBlue" FontSize="Small" />
                             <Editor x:Name="Fecha" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True" Keyboard="Chat" />
                             <Label Text="Mejoras" TextColor="DarkSlateBlue" FontSize="Small"/>
                             <Editor x:Name="Mejoras" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True"/>
                             <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="Small"/>
                             <Editor x:Name="Tiempo" TextColor="Black" PlaceholderColor="Gray" AutoSize="TextChanges" IsReadOnly="True" TextTransform="Uppercase"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="End">
+                            <Button  Text="Ir a graficas" Clicked="ButtonGraficas_Clicked" CornerRadius="40" HeightRequest="35" WidthRequest="160" BorderColor="gray" Margin="0,30,0,0"/>
                         </StackLayout>
                 </StackLayout>
                 </Frame>

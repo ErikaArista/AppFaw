@@ -146,6 +146,11 @@ namespace AppFaw.Views
         {
             await DisplayAlert("Alerta", "El VIN seleccionado no tiene una estación asociada.", "OK");
         }
+
+        private async void ButtonGraficas_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GraficasFaw());
+        }
     }
 
     public class Camion1
