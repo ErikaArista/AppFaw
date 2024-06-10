@@ -14,7 +14,7 @@
                     <Frame.Background>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
                             <GradientStop Color="White" Offset="0"/>
-                            <GradientStop Color="DodgerBlue" Offset="1"/>
+                            <GradientStop Color="#2196f3" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>

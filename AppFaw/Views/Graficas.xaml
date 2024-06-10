@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
-             x:Class="AppFaw.Views.GraficasFaw">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="AppFaw.Views.Graficas">
     <ContentPage.Content>
         <ScrollView>
             <AbsoluteLayout>
@@ -12,22 +13,22 @@
                     <Frame.Background>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
                             <GradientStop Color="White" Offset="0"/>
-                            <GradientStop Color="DodgerBlue" Offset="1"/>
+                            <GradientStop Color="#2196f3" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>
 
                 <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="10,15,10,0" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     <StackLayout>
-                        <StackLayout  HorizontalOptions="End">
+                        <StackLayout HorizontalOptions="End">
                             <Image Source="https://fawcamiones.pe/uploads/camiones/camion-dragon-v-chasis-1-9-11zon.jpg" WidthRequest="100" Margin="250,0,0,0"/>
                         </StackLayout>
 
-                        <StackLayout HorizontalOptions="Start">
-                            <microcharts:ChartView x:Name="graficasChart" HeightRequest="200" WidthRequest="100">
-                                
-                            </microcharts:ChartView>
-                        </StackLayout>
+                        <ScrollView Orientation="Both">
+                            <StackLayout >
+                                <microcharts:ChartView x:Name="GraficaLinea" HeightRequest="400" WidthRequest="800" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0,100,0,0"></microcharts:ChartView>
+                            </StackLayout>
+                        </ScrollView>
 
                     </StackLayout>
 

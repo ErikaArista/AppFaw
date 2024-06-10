@@ -149,7 +149,7 @@ namespace AppFaw.Views
 
         private async void ButtonGraficas_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GraficasFaw());
+            await Navigation.PushAsync(new Graficas(camiones));
         }
     }
 
