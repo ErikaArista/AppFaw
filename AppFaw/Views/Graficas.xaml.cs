@@ -17,9 +17,12 @@ namespace AppFaw.Views
     public partial class Graficas : ContentPage
     {
         List<Entry> entryList;
+        List<Camion1> camionesList;
+
         public Graficas(List<Camion1> camiones)
         {
             InitializeComponent();
+            camionesList = camiones;
             entryList = new List<Entry>();
             LoadEntries(camiones);
             PopularPickerFechas(camiones);
@@ -29,7 +32,34 @@ namespace AppFaw.Views
                 Entries = entryList,
                 LineMode = LineMode.Straight,
                 LineSize = 8,
-                PointMode= PointMode.Circle,
+                PointMode = PointMode.Circle,
+                PointSize = 18,
+                LabelTextSize = 42,
+            };
+
+            pickerFecha.SelectedIndexChanged += PickerFecha_SelectedIndexChanged;
+        }
+
+        private void PickerFecha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (pickerFecha.SelectedIndex == -1) return;
+
+            string selectedDate = pickerFecha.Items[pickerFecha.SelectedIndex];
+            DateTime selectedDateTime = DateTime.Parse(selectedDate);
+
+            var filteredCamiones = camionesList
+                .Where(c => c.FechaRealizacion.Date == selectedDateTime)
+                .ToList();
+
+            entryList.Clear();
+            LoadEntries(filteredCamiones);
+
+            GraficaLinea.Chart = new LineChart()
+            {
+                Entries = entryList,
+                LineMode = LineMode.Straight,
+                LineSize = 8,
+                PointMode = PointMode.Circle,
                 PointSize = 18,
                 LabelTextSize = 42,
             };
