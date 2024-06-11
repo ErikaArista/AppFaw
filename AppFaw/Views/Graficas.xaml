@@ -23,6 +23,10 @@
                         <StackLayout HorizontalOptions="End">
                             <Image Source="https://fawcamiones.pe/uploads/camiones/camion-dragon-v-chasis-1-9-11zon.jpg" WidthRequest="100" Margin="250,0,0,0"/>
                         </StackLayout>
+                        <StackLayout>
+                            <Image Source="https://iconos8.es/icon/43503/calendar"></Image>
+                            <Picker x:Name="pickerFecha" Margin="30,20,150,0" Title="Selecciona una fecha"  FontSize="17"></Picker>
+                        </StackLayout>
 
                         <ScrollView Orientation="Both">
                             <StackLayout >

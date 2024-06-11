@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using Microcharts;
 using Entry = Microcharts.ChartEntry;
 using SkiaSharp;
+using AppFaw.Models;
 
 namespace AppFaw.Views
 {
@@ -21,6 +22,7 @@ namespace AppFaw.Views
             InitializeComponent();
             entryList = new List<Entry>();
             LoadEntries(camiones);
+            PopularPickerFechas(camiones);
 
             GraficaLinea.Chart = new LineChart()
             {
@@ -65,6 +67,20 @@ namespace AppFaw.Views
                 (byte)rand.Next(256),
                 (byte)rand.Next(256)
             );
+        }
+
+        private void PopularPickerFechas(List<Camion1> camiones)
+        {
+            var fechaSet = new HashSet<DateTime>();
+
+            foreach (var camion in camiones)
+            {
+                if (fechaSet.Add(camion.FechaRealizacion.Date))
+                {
+                    // Añadir la fecha única al DatePicker
+                    pickerFecha.Items.Add(camion.FechaRealizacion.Date.ToString("d"));
+                }
+            }
         }
     }
 }
