@@ -107,10 +107,15 @@ namespace AppFaw.Views
             {
                 if (fechaSet.Add(camion.FechaRealizacion.Date))
                 {
-                    // Añadir la fecha única al DatePicker
+                    // Añadir la fecha única a picker
                     pickerFecha.Items.Add(camion.FechaRealizacion.Date.ToString("d"));
                 }
             }
+        }
+
+        private async void ButtonAuditores_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Auditores());
         }
     }
 }

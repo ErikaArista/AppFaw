@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFaw.Views.Auditores">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <Frame HeightRequest="200" Padding="0" Margin="0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="#2196f3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+                <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="25,0,25,0" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
+
+                    <StackLayout Padding="20">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Datos auditores" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
+                            <Image Source="https://img.freepik.com/vector-premium/auditor-concepto-contabilidad_108855-3970.jpg" WidthRequest="100"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Picker x:Name="pickerIdAuditores" Title="Selecciona un Id" TitleColor="LightBlue" FontSize="17" Margin="0,15,0,0"/>
+                            <Label Text="Nombre" TextColor="DarkSlateBlue" FontSize="17" Margin="0,15,0,0" />
+                            <Editor x:Name="NombreAuditor" TextColor="Black" AutoSize="TextChanges" IsReadOnly="True" Keyboard="Chat" />
+                            <Label Text="Vehiculos asociados" TextColor="DarkSlateBlue" FontSize="17" Margin="0,15,0,0"/>
+                            <Editor x:Name="VinAuditor" TextColor="Black" AutoSize="TextChanges" IsReadOnly="True"/>
+                            <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="17" Margin="0,15,0,0"/>
+                            <Editor x:Name="Tiempo" TextColor="Black" AutoSize="TextChanges" IsReadOnly="True" TextTransform="Uppercase"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
