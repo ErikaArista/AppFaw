@@ -13,8 +13,7 @@
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>
-                <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="25,0,25,0" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
-
+                <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="10,30,10,120" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     <StackLayout Padding="20">
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Datos auditores" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
