@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using Newtonsoft.Json.Linq;
+using AppFaw.Models;
 
 namespace AppFaw.Views
 {
@@ -163,5 +164,6 @@ namespace AppFaw.Views
         public DateTime FechaRealizacion { get; set; }
         public TimeSpan TiempoAuditores { get; set; }
         public string Estacion { get; set; }
+        public User users { get; set; }
     }
 }
