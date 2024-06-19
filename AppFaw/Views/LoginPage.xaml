@@ -20,7 +20,7 @@
                 </Frame>
 
                 <!-- Main Content Frame -->
-                <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="25,50,25,50" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
+                <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="10,0,10,100" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     <StackLayout Padding="20">
                         <Image Margin="0,25,0,15" Source="https://i.pinimg.com/originals/51/b0/01/51b001e0289d4fe1c0bec80a95edbe7d.png"/>
                         <Label Text="Inicio de sesión" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="Black" HorizontalOptions="CenterAndExpand" />

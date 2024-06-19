@@ -13,65 +13,77 @@ namespace AppFaw.Views
     public partial class Auditores : ContentPage
     {
         List<Camion1> camionesList;
+        Dictionary<string, List<TimeSpan>> tiemposPorVin;
 
         public Auditores(List<Camion1> camiones)
         {
             InitializeComponent();
             camionesList = camiones;
+            tiemposPorVin = new Dictionary<string, List<TimeSpan>>();
             PopularPickerIdAuditores();
         }
 
         private void PopularPickerIdAuditores()
         {
-            var idAuditorSet = new HashSet<int>();
+            var nombreAuditorSet = new HashSet<string>();
 
             foreach (var camion in camionesList)
             {
-                if (idAuditorSet.Add(camion.idAuditoresVerificacion))
+                if (nombreAuditorSet.Add(camion.users.name))
                 {
-                    pickerIdAuditores.Items.Add(camion.idAuditoresVerificacion.ToString());
+                    pickerNombreAuditores.Items.Add(camion.users.name.ToString());
                 }
             }
         }
 
-        private void MostrarDatosAuditor(int idAuditorSeleccionado)
+        private async void MostrarDatosAuditor(string AuditorSeleccionado)
         {
-            // Filtrar los camiones relacionados con el auditor seleccionado
-            var camionesRelacionados = camionesList.Where(c => c.idAuditoresVerificacion == idAuditorSeleccionado);
-
-            NombreAuditor.Text = string.Empty;
+            // Limpiar datos 
             VinAuditor.Text = string.Empty;
             Tiempo.Text = string.Empty;
+            tiemposPorVin.Clear();
 
-            // Mostrar los detalles del primer camión relacionado 
-            var primerCamion = camionesRelacionados.FirstOrDefault();
-            if (primerCamion != null)
+            // Busca los camiones relacionados con el auditor seleccionado
+            var camionesRelacionados = camionesList.Where(c => c.users.name == AuditorSeleccionado);
+
+            // Agregar los tiempos
+            foreach (var camion in camionesRelacionados)
             {
-                // Mostrar el nombre del auditor (asumiendo que está en el User asociado al camión)
-                if (primerCamion.users != null)
+                if (!tiemposPorVin.ContainsKey(camion.VIN))
                 {
-                    NombreAuditor.Text = primerCamion.users.name;
+                    tiemposPorVin.Add(camion.VIN, new List<TimeSpan>());
                 }
 
-                // Mostrar los VIN y tiempos de ensamblaje de los camiones relacionados
-                foreach (var camion in camionesRelacionados)
-                {
-                    VinAuditor.Text += camion.VIN + Environment.NewLine;
-                    Tiempo.Text += camion.TiempoAuditores.ToString() + Environment.NewLine;
-                }
+                tiemposPorVin[camion.VIN].Add(camion.TiempoAuditores);
             }
-            else
+
+            //Muentra los VIN sin repeticion
+            VinAuditor.Text = string.Join(Environment.NewLine, tiemposPorVin.Keys);
+
+            //Muestra los tiempo por cada VIN
+            foreach (var vin in tiemposPorVin.Keys)
             {
-                NombreAuditor.Text = "Auditor no encontrado";
+                Tiempo.Text += $"VIN: {vin}" + Environment.NewLine;
+                foreach (var tiempo in tiemposPorVin[vin])
+                {
+
+                    Tiempo.Text += $"{tiempo} " + Environment.NewLine;
+                }
+                Tiempo.Text += Environment.NewLine;
+            }
+
+            if (tiemposPorVin.Keys.Count == 0)
+            {
+                await DisplayAlert("Error", "Auditor no encontrado", "Ok");
             }
         }
 
-        private void pickerIdAuditores_SelectedIndexChanged(object sender, EventArgs e)
+        private void pickerAuditores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (pickerIdAuditores.SelectedIndex != -1)
+            if (pickerNombreAuditores.SelectedIndex != -1)
             {
-                int idAuditorSeleccionado = Convert.ToInt32(pickerIdAuditores.SelectedItem);
-                MostrarDatosAuditor(idAuditorSeleccionado);
+                string AuditorSeleccionado = Convert.ToString(pickerNombreAuditores.SelectedItem);
+                MostrarDatosAuditor(AuditorSeleccionado);
             }
         }
     }

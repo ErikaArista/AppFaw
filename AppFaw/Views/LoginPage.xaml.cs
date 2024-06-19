@@ -48,7 +48,7 @@ namespace AppFaw.Views
                     email = correo,
                     password = password,
                 };
-
+                //consumo de api
                 Uri uri = new Uri("http://10.0.2.2:8000/api/Login");
                 var json = JsonConvert.SerializeObject(loginInformacion);
                 var datos = new StringContent(json, Encoding.UTF8, "application/json");
@@ -60,11 +60,13 @@ namespace AppFaw.Views
 
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
+                        //verificacion de que el json cno venga vacio
                         if (result.Contains("eyJ"))
                         {
                             var jsonResponse = JObject.Parse(result);
                             var token = jsonResponse.Value<string>("Token");
-
+                            indicadorCargar.IsVisible = true;
+                            indicadorCargar.IsRunning = true;
                             await Navigation.PushAsync(new Busqueda(token));
                         }
                         else if (result.Contains("Credenciales invalidas"))

@@ -13,20 +13,24 @@
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>
-                <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="10,30,10,120" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
+                <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="10,0,10,0" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     <StackLayout Padding="20">
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Datos auditores" Margin="0,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand" />
                             <Image Source="https://img.freepik.com/vector-premium/auditor-concepto-contabilidad_108855-3970.jpg" WidthRequest="100"/>
                         </StackLayout>
-                        <StackLayout HorizontalOptions="FillAndExpand">
-                            <Picker x:Name="pickerIdAuditores" Title="Selecciona un Id" TitleColor="LightBlue" FontSize="17" Margin="0,15,0,0" SelectedIndexChanged="pickerIdAuditores_SelectedIndexChanged"/>
-                            <Label Text="Nombre del auditor" TextColor="DarkSlateBlue" FontSize="17" Margin="0,15,0,0"/>
-                            <Editor x:Name="NombreAuditor" TextColor="Black" AutoSize="TextChanges" IsReadOnly="True"/>
-                            <Label Text="Vehiculos asociados" TextColor="DarkSlateBlue" FontSize="17" Margin="0,15,0,0"/>
-                            <Editor x:Name="VinAuditor" TextColor="Black" AutoSize="TextChanges" IsReadOnly="True"/>
-                            <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="17" Margin="0,15,0,0"/>
-                            <Editor x:Name="Tiempo" TextColor="Black" AutoSize="TextChanges" IsReadOnly="True" TextTransform="Uppercase"/>
+                        <ScrollView>
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                    <Label Text="Nombre del auditor" TextColor="DarkSlateBlue" FontSize="18" Margin="0,15,0,0"/>
+                                    <Picker x:Name="pickerNombreAuditores" Title="Selecciona un auditor" TitleColor="LightBlue" FontSize="17" Margin="0,15,0,0" SelectedIndexChanged="pickerAuditores_SelectedIndexChanged"/>
+                                <Label Text="Vehiculos asociados" TextColor="DarkSlateBlue" FontSize="18" Margin="0,15,0,0"/>
+                                <Editor x:Name="VinAuditor" TextColor="Black" AutoSize="TextChanges" IsReadOnly="True" FontSize="17"/>
+                                <Label Text="Tiempo de ensamblaje" TextColor="DarkSlateBlue" FontSize="18" Margin="0,15,0,0"/>
+                                    <Editor x:Name="Tiempo" TextColor="Black" AutoSize="TextChanges" IsReadOnly="True" TextTransform="Uppercase" FontSize="17"/>
+                            </StackLayout>  
+                        </ScrollView>
+                        <StackLayout HorizontalOptions="End">
+                            <Button Text="Graficas auditores" CornerRadius="40" HeightRequest="35" WidthRequest="200" BorderColor="gray" Margin="0,30,0,0"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>

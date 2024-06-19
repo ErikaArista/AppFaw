@@ -7,9 +7,6 @@
         <ScrollView>
             <AbsoluteLayout>
                 <Frame HeightRequest="200" Padding="0" Margin="0" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Tiempo por estación" Margin="0,5,0,25" FontSize="Large" FontAttributes="Bold" FontFamily="Garamond"  HorizontalOptions="CenterAndExpand" TextColor="White" />
-                    </StackLayout>
                     <Frame.Background>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
                             <GradientStop Color="White" Offset="0"/>
@@ -20,21 +17,20 @@
 
                 <Frame BackgroundColor="White" HeightRequest="650" HasShadow="True" Padding="0" Margin="10,0,10,0" CornerRadius="20" BorderColor="LightGray" AbsoluteLayout.LayoutBounds="0, 0.5, 1, 0.9" AbsoluteLayout.LayoutFlags="All">
                     <StackLayout>
-                        <StackLayout HorizontalOptions="End">
-                            <Image Source="https://fawcamiones.pe/uploads/camiones/camion-dragon-v-chasis-1-9-11zon.jpg" WidthRequest="100" Margin="250,0,0,0"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Tiempo por estación" Margin="25,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand"/>
+                            <Image Source="https://fawcamiones.pe/uploads/camiones/camion-dragon-v-chasis-1-9-11zon.jpg" WidthRequest="100" Margin="90,0,0,0"/>
                         </StackLayout>
                         <StackLayout>
-                            <Image Source="https://iconos8.es/icon/43503/calendar"></Image>
-                            <Picker x:Name="pickerFecha" Margin="30,10,120,0" Title="Selecciona una fecha"  FontSize="17" TitleColor="LightBlue"></Picker>
+                            <Picker x:Name="pickerFecha" Margin="25,0,0,0" Title="Selecciona una fecha"  FontSize="17" TitleColor="LightBlue" HorizontalOptions="StartAndExpand" ></Picker>
                         </StackLayout>
-
                         <ScrollView Orientation="Both">
-                            <StackLayout >
-                                <microcharts:ChartView x:Name="GraficaLinea" HeightRequest="400" WidthRequest="800" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0,40,0,0"></microcharts:ChartView>
+                            <StackLayout Padding="5">
+                                <microcharts:ChartView x:Name="GraficaLinea" HeightRequest="350" WidthRequest="800" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0,40,0,0"></microcharts:ChartView>
                             </StackLayout>
                         </ScrollView>
                         <StackLayout HorizontalOptions="End">
-                            <Button  Text="Siguiente"  Clicked="ButtonAuditores_Clicked" CornerRadius="40" HeightRequest="35" WidthRequest="160" BorderColor="gray" Margin="0,20,10,0"/>
+                            <Button  Text="Siguiente"  Clicked="ButtonAuditores_Clicked" CornerRadius="40" HeightRequest="35" WidthRequest="160" BorderColor="gray" Margin="0,40,10,0"/>
                         </StackLayout>
 
                     </StackLayout>
