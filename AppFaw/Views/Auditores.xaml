@@ -30,7 +30,7 @@
                             </StackLayout>  
                         </ScrollView>
                         <StackLayout HorizontalOptions="End">
-                            <Button Text="Graficas auditores" CornerRadius="40" HeightRequest="35" WidthRequest="200" BorderColor="gray" Margin="0,30,0,0"/>
+                            <Button Text="Graficas auditores" Clicked="ButtonGraficasAuditores_Clicked" CornerRadius="40" HeightRequest="35" WidthRequest="200" BorderColor="gray" Margin="0,30,0,0"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>

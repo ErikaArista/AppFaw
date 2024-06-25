@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppFaw.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -85,6 +86,11 @@ namespace AppFaw.Views
                 string AuditorSeleccionado = Convert.ToString(pickerNombreAuditores.SelectedItem);
                 MostrarDatosAuditor(AuditorSeleccionado);
             }
+        }
+
+        private async void ButtonGraficasAuditores_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GarficasAuditores(camionesList));
         }
     }
 }
