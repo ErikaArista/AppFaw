@@ -104,7 +104,6 @@ namespace AppFaw.Views
             {
                 if (NombreSet.Add(camion.users.name))
                 {
-                    // Añadir la fecha única a picker
                     pickerAuditor.Items.Add(camion.users.name.ToString());
                 }
             }
