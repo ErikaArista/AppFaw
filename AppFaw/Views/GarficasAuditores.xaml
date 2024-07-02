@@ -23,7 +23,6 @@
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Picker x:Name="pickerAuditor" Margin="15,0,0,0" Title="Selecciona una auditor"  FontSize="17" TitleColor="LightBlue" HorizontalOptions="StartAndExpand" ></Picker>
-                           Acomodo d
                         </StackLayout>
                         <ScrollView Orientation="Both">
                             <StackLayout Padding="5">
