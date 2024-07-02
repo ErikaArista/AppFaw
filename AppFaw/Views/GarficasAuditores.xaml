@@ -21,8 +21,9 @@
                             <Label Text="Tiempo por auditor" Margin="15,20,0,25" FontSize="22" FontAttributes="None" FontFamily="Garamond" TextColor="DarkSlateBlue" HorizontalOptions="CenterAndExpand"/>
                             <Image Source="https://png.pngtree.com/png-vector/20190822/ourlarge/pngtree-graph-analytics-business-diagram-marketing-statistics-tren-png-image_1696127.jpg" WidthRequest="100" Margin="90,0,0,0"/>
                         </StackLayout>
-                        <StackLayout>
+                        <StackLayout Orientation="Horizontal">
                             <Picker x:Name="pickerAuditor" Margin="15,0,0,0" Title="Selecciona una auditor"  FontSize="17" TitleColor="LightBlue" HorizontalOptions="StartAndExpand" ></Picker>
+                           Acomodo d
                         </StackLayout>
                         <ScrollView Orientation="Both">
                             <StackLayout Padding="5">

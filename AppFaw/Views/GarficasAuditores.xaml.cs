@@ -40,10 +40,12 @@ namespace AppFaw.Views
         }
 
 
-        private void PickerName_SelectedIndexChanged(object sender, EventArgs e)
+        private async void PickerName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (pickerAuditor.SelectedIndex == -1) return;
-
+            if (pickerAuditor.SelectedIndex == -1)
+            {
+                await DisplayAlert("Error", "Auditor no encontrado", "Ok");
+            }
             string selectedName = pickerAuditor.Items[pickerAuditor.SelectedIndex];
 
             var filteredCamiones = camionesList
