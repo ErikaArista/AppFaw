@@ -58,7 +58,6 @@ namespace AppFaw.Views
                 tiemposPorVin[camion.VIN].Add(camion.TiempoAuditores);
             }
 
-            //Muentra los VIN sin repeticion
             VinAuditor.Text = string.Join(Environment.NewLine, tiemposPorVin.Keys);
 
             //Muestra los tiempo por cada VIN
