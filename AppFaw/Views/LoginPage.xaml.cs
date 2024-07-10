@@ -60,7 +60,7 @@ namespace AppFaw.Views
 
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        //verificacion de que el json cno venga vacio
+                        //verificacion de que el json no venga vacio
                         if (result.Contains("eyJ"))
                         {
                             var jsonResponse = JObject.Parse(result);
@@ -89,6 +89,7 @@ namespace AppFaw.Views
                 DisplayAlert("Error", "Verifica que los campos estén llenos", "OK");
             }
         }
+
 
 
     }
